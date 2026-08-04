@@ -9,7 +9,7 @@ The repository structure and implementation plan are established. Application co
 ## Repository layout
 
 ```text
-apps/             Deployable API, worker, and web applications
+apps/             Deployable API, worker, Streamlit, and future web applications
 packages/         Reusable domain modules
 infrastructure/   Local and hosted deployment configuration
 migrations/       Database schema migrations
@@ -27,7 +27,8 @@ See [docs/IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md) for the delivery 
 
 - FastAPI API
 - Background ingestion worker
-- Next.js web application
+- Streamlit Phase 1 and engineering console
+- Optional Next.js end-user application in a later phase
 - PostgreSQL with pgvector
 - Redis
 - vLLM serving Qwen3.5-35B-A3B GPTQ Int4
@@ -41,6 +42,17 @@ docker compose up --build
 ```
 
 This command will be enabled once the Phase 1 service implementations and container definitions are added.
+
+## Streamlit console
+
+The first functional interface is available under `apps/streamlit`. It is a thin FastAPI client with Documents, Chat, Retrieval Debug, and System Status pages. Until the Phase 1 backend endpoints exist, it starts normally and reports that the API is unavailable.
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e 'apps/streamlit[dev]'
+streamlit run apps/streamlit/app.py
+```
 
 ## Primary local model
 

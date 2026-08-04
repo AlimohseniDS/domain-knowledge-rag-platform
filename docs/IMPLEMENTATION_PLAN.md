@@ -7,7 +7,7 @@ Deliver a local-first, provider-neutral RAG platform that ingests private domain
 ## Delivery sequence
 
 1. Establish requirements, security classifications, and an evaluation set.
-2. Build a local vertical slice using FastAPI, PostgreSQL/pgvector, Redis, filesystem storage, Qwen3.5-35B-A3B GPTQ Int4 through vLLM, and a basic web interface.
+2. Build a local vertical slice using FastAPI, PostgreSQL/pgvector, Redis, filesystem storage, Qwen3.5-35B-A3B GPTQ Int4 through vLLM, and the Streamlit console.
 3. Add hybrid retrieval, reranking, retrieval diagnostics, and abstention behavior.
 4. Add authentication, tenants, workspaces, document permissions, audit logging, and secure deletion.
 5. Add production observability, backup and restore, provider fallback, optional MinIO/S3 storage, and vLLM serving.
@@ -24,5 +24,6 @@ Deliver a local-first, provider-neutral RAG platform that ingests private domain
 - The local workflow functions offline after dependencies and model weights are installed.
 - Permission filters prevent unauthorized content from entering retrieval results.
 - Automated tests cover ingestion, retrieval, citations, deletion, and authorization.
+- Streamlit remains a thin FastAPI client and contains no database, storage, retrieval, or model-provider logic.
 
 The detailed final plan is also stored on the user's Desktop as `RAG_Platform_Final_Implementation_Plan.md`.
