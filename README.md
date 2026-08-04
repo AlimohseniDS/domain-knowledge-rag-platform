@@ -30,7 +30,7 @@ See [docs/IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md) for the delivery 
 - Next.js web application
 - PostgreSQL with pgvector
 - Redis
-- Ollama
+- vLLM serving Qwen3.5-35B-A3B GPTQ Int4
 - Local filesystem document storage by default
 - Optional MinIO profile
 
@@ -41,3 +41,13 @@ docker compose up --build
 ```
 
 This command will be enabled once the Phase 1 service implementations and container definitions are added.
+
+## Primary local model
+
+The first supported local generation model is:
+
+```text
+Qwen/Qwen3.5-35B-A3B-GPTQ-Int4
+```
+
+The initial serving profile targets one NVIDIA RTX A6000 with 48 GB VRAM. It uses vLLM, text-only loading, GPTQ 4-bit MoE kernels, and a 32K operational context window. See [docs/LOCAL_MODEL.md](docs/LOCAL_MODEL.md) for the exact setup and validation procedure.

@@ -7,7 +7,7 @@ Deliver a local-first, provider-neutral RAG platform that ingests private domain
 ## Delivery sequence
 
 1. Establish requirements, security classifications, and an evaluation set.
-2. Build a local vertical slice using FastAPI, PostgreSQL/pgvector, Redis, filesystem storage, Ollama, and a basic web interface.
+2. Build a local vertical slice using FastAPI, PostgreSQL/pgvector, Redis, filesystem storage, Qwen3.5-35B-A3B GPTQ Int4 through vLLM, and a basic web interface.
 3. Add hybrid retrieval, reranking, retrieval diagnostics, and abstention behavior.
 4. Add authentication, tenants, workspaces, document permissions, audit logging, and secure deletion.
 5. Add production observability, backup and restore, provider fallback, optional MinIO/S3 storage, and vLLM serving.
@@ -20,6 +20,7 @@ Deliver a local-first, provider-neutral RAG platform that ingests private domain
 - Authorized users can upload, index, search, cite, and delete documents.
 - Answers are grounded in retrieved evidence and include valid citations.
 - Users can select a configured local or commercial LLM.
+- Qwen3.5-35B-A3B GPTQ Int4 runs on a single NVIDIA RTX A6000 using the documented 32K text-only profile.
 - The local workflow functions offline after dependencies and model weights are installed.
 - Permission filters prevent unauthorized content from entering retrieval results.
 - Automated tests cover ingestion, retrieval, citations, deletion, and authorization.
